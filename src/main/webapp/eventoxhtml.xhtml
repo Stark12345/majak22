@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Registro de Eventos</h2>
+		<h:form>
+
+			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{eventoController.ev.codigoEvento}"></p:inputText>
+
+			<h:outputLabel value="Evento: " for="evento"
+				styleClass="control-label" />
+			<p:inputText id="evento" styleClass="form-control"
+				value="#{eventoController.ev.nombreEvento}"></p:inputText>
+
+
+			<h:outputLabel value="Descripcion: " for="descripcion"
+				styleClass="control-label" />
+			<p:inputText id="descripcion" styleClass="form-control"
+				value="#{eventoController.ev.descripcionEvento}"></p:inputText>
+				
+				<h:outputLabel value="FechaInicio: " for="fechaInicio"
+				styleClass="control-label" />
+			<p:inputText id="fechaInicio" styleClass="form-control"
+				value="#{eventoController.ev.dInicioEvento}"></p:inputText>
+				
+				<h:outputLabel value="FechaFin: " for="fechaFin"
+				styleClass="control-label" />
+			<p:inputText id="fechaFin" styleClass="form-control"
+				value="#{eventoController.ev.dFinEvento}"></p:inputText>
+				
+				<h:outputLabel value="Afectados: " for="afectados"
+				styleClass="control-label" />
+			<p:inputText id="afectados" styleClass="form-control"
+				value="#{eventoController.ev.nAfectadosEvento}"></p:inputText>
+
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{eventoController.insert()}"
+				action="evento?faces-redirect=true" update="@form"></p:commandButton>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
